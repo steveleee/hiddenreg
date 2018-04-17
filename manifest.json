@@ -1,0 +1,16 @@
+{
+    "name": "HiddenReg",
+    "version": "1.0",
+    "description": "An auto-fill registration extension.",
+    "permissions": [
+        "storage",
+        "tabs", 
+        "https://www.yelp.com/signup",
+        "https://auth.collegeconfidential.com/module.php/hobsonsregister/register.php"
+        ],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "manifest_version": 2
+}
