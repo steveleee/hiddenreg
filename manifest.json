@@ -6,7 +6,8 @@
         "storage",
         "tabs", 
         "https://www.yelp.com/signup",
-        "https://auth.collegeconfidential.com/module.php/hobsonsregister/register.php"
+        "https://auth.collegeconfidential.com/module.php/hobsonsregister/register.php",
+        "https://login.aol.com/account/create"
         ],
     "background": {
         "scripts": ["background.js"],
