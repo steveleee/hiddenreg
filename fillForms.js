@@ -1,15 +1,3 @@
-function generateLastName() {
-    return "last_name"
-}
-
-function generateFirstName() {
-    return "first_name"
-}
-
-function generateEmail() {
-    return "test@mail.com"
-}
-
 function generateBirthday() {
     return {
         monthNumber: 1,
@@ -19,15 +7,28 @@ function generateBirthday() {
     }
 }
 
+function fetchRandomInfo() {
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("GET", "https://gentle-tor-49998.herokuapp.com/users", false);
+    xhr.send();
+
+    var result = JSON.parse(xhr.responseText)['results'][0];
+    console.log(result);
+    return result;
+}
+
 function fillYelpRegistration() {
+    let info = fetchRandomInfo();
+
     let firstNameInput = document.getElementById("first_name");
-    firstNameInput.value = generateFirstName();
+    firstNameInput.value = info.name.first;
 
     let lastNameInput = document.getElementById("last_name");
-    lastNameInput.value = generateLastName();
+    lastNameInput.value = info.name.last;
 
     let emailInput = document.getElementById("email");
-    emailInput.value = generateEmail();
+    emailInput.value = info.email;
 
     let birthdate = generateBirthday();
 
@@ -42,14 +43,16 @@ function fillYelpRegistration() {
 }
 
 function fillCollegeConfidentialRegistration() {
+    let info = fetchRandomInfo();
+
     let firstNameInput = document.getElementById("register_firstname");
-    firstNameInput.value = generateFirstName();
+    firstNameInput.value = info.name.first;
 
     let lastNameInput = document.getElementById("register_lastname");
-    lastNameInput.value = generateLastName();
+    lastNameInput.value = info.name.last;
 
     let emailInput = document.getElementById("register_email");
-    emailInput.value = generateEmail();
+    emailInput.value = info.email;
 
     let birthdate = generateBirthday();
 
@@ -64,11 +67,13 @@ function fillCollegeConfidentialRegistration() {
 }
 
 function fillAOLRegistration() {
+    let info = fetchRandomInfo();
+
     let firstNameInput = document.getElementById("usernamereg-firstName");
-    firstNameInput.value = generateFirstName();
+    firstNameInput.value = info.name.first;
 
     let lastNameInput = document.getElementById("usernamereg-lastName");
-    lastNameInput.value = generateLastName();
+    lastNameInput.value = info.name.last;
 
     let birthdate = generateBirthday();
 
