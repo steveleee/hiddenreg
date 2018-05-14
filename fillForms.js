@@ -30,6 +30,12 @@ function fillYelpRegistration() {
     let emailInput = document.getElementById("email");
     emailInput.value = info.email;
 
+    let passwordInput = document.getElementById("password");
+    passwordInput.value = info.login.password;
+
+    let zipInput = document.getElementById("zip");
+    zipInput.value = info.location.postcode;
+
     let birthdate = generateBirthday();
 
     let birthMonthInput = document.getElementsByName("birthdate_m")[0];
@@ -74,6 +80,15 @@ function fillAOLRegistration() {
 
     let lastNameInput = document.getElementById("usernamereg-lastName");
     lastNameInput.value = info.name.last;
+
+    let usernameInput = document.getElementById("usernamereg-yid");
+    usernameInput.value = info.login.username;
+
+    let passwordInput = document.getElementById("usernamereg-password");
+    passwordInput.value = info.login.password;
+
+    let genderInput = document.getElementById("usernamereg-freeformGender");
+    genderInput.value = info.gender;
 
     let birthdate = generateBirthday();
 
