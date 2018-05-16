@@ -28,13 +28,15 @@ function fillYelpRegistration() {
     zipInput.value = info.location.postcode;
 
     let birthMonthInput = document.getElementsByName("birthdate_m")[0];
-    birthMonthInput.value = info.dob_month;
+    birthMonthInput.value = parseInt(info.dob_month);
 
     let birthDayInput = document.getElementsByName("birthdate_d")[0];
-    birthDayInput.value = info.dob_day;
+    birthDayInput.value = parseInt(info.dob_day);
 
     let birthYearInput = document.getElementsByName("birthdate_y")[0];
     birthYearInput.value = info.dob_year;
+
+    saveInfoToStorage('yelp', info);
 }
 
 function fillCollegeConfidentialRegistration() {
@@ -49,14 +51,19 @@ function fillCollegeConfidentialRegistration() {
     let emailInput = document.getElementById("register_email");
     emailInput.value = info.email;
 
+    let usernameInput = document.getElementById("register_ccProfile_username");
+    usernameInput.value = info.login.username;
+
     let birthMonthInput = document.getElementById("register_ccProfile_dob_month");
-    birthMonthInput.value = info.dob_month;
+    birthMonthInput.value = parseInt(info.dob_month);
 
     let birthDayInput = document.getElementById("register_ccProfile_dob_day");
-    birthDayInput.value = info.dob_day;
+    birthDayInput.value = parseInt(info.dob_day);
 
     let birthYearInput = document.getElementById("register_ccProfile_dob_year");
     birthYearInput.value = info.dob_year;
+
+    saveInfoToStorage('college_confidential', info);
 }
 
 function fillAOLRegistration() {
@@ -91,6 +98,14 @@ function fillAOLRegistration() {
 
     let birthYearInput = document.getElementById("usernamereg-year");
     birthYearInput.value = info.dob_year;
+
+    saveInfoToStorage('aol', info);
+}
+
+function saveInfoToStorage(key, info) {
+    chrome.storage.local.set({ [key]: info }, function() {
+        // Do nothing.
+    });
 }
 
 chrome.runtime.sendMessage({type: "url"}, function(response) {

@@ -17,5 +17,7 @@
     "browser_action": {
 
     },
+    "options_page": "options.html",
+    "content_security_policy":"script-src 'self' https://maxcdn.bootstrapcdn.com https://code.jquery.com; object-src 'self'",
     "manifest_version": 2
 }
