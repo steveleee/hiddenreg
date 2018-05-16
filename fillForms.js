@@ -39,13 +39,13 @@ function fillYelpRegistration() {
     let birthdate = generateBirthday();
 
     let birthMonthInput = document.getElementsByName("birthdate_m")[0];
-    birthMonthInput.value = birthdate.monthNumber;
+    birthMonthInput.value = info.dob_month;
 
     let birthDayInput = document.getElementsByName("birthdate_d")[0];
-    birthDayInput.value = birthdate.day;
+    birthDayInput.value = info.dob_day;
 
     let birthYearInput = document.getElementsByName("birthdate_y")[0];
-    birthYearInput.value = birthdate.year;
+    birthYearInput.value = info.dob_year;
 }
 
 function fillCollegeConfidentialRegistration() {
@@ -63,13 +63,13 @@ function fillCollegeConfidentialRegistration() {
     let birthdate = generateBirthday();
 
     let birthMonthInput = document.getElementById("register_ccProfile_dob_month");
-    birthMonthInput.value = birthdate.monthNumber;
+    birthMonthInput.value = info.dob_month;
 
     let birthDayInput = document.getElementById("register_ccProfile_dob_day");
-    birthDayInput.value = birthdate.day;
+    birthDayInput.value = info.dob_day;
 
     let birthYearInput = document.getElementById("register_ccProfile_dob_year");
-    birthYearInput.value = birthdate.year;
+    birthYearInput.value = info.dob_year;
 }
 
 function fillAOLRegistration() {
@@ -90,16 +90,22 @@ function fillAOLRegistration() {
     let genderInput = document.getElementById("usernamereg-freeformGender");
     genderInput.value = info.gender;
 
+    // let phoneNumberInput = document.getElementById("usernamereg-phone");
+    // let processedNumber = info.phone;
+    // phoneNumberInput.value = processedNumber.split(")")[0].substring(1, 4) + processedNumber.split("-")[1] + processedNumber.split("-")[2];
+    // console.log(processedNumber);
+    // console.log(phoneNumberInput.value);
+
     let birthdate = generateBirthday();
 
     let birthMonthInput = document.getElementById("usernamereg-month");
-    birthMonthInput.value = birthdate.monthNumber;
+    birthMonthInput.value = parseInt(info.dob_month);
 
     let birthDayInput = document.getElementById("usernamereg-day");
-    birthDayInput.value = birthdate.day;
+    birthDayInput.value = parseInt(info.dob_day);
 
     let birthYearInput = document.getElementById("usernamereg-year");
-    birthYearInput.value = birthdate.year;
+    birthYearInput.value = info.dob_year;
 }
 
 chrome.runtime.sendMessage({type: "url"}, function(response) {
@@ -116,5 +122,5 @@ chrome.runtime.sendMessage({type: "url"}, function(response) {
     }
     else {
         console.log("URL not supported");
-    } 
+    }
 });
