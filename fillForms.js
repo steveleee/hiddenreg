@@ -1,20 +1,11 @@
-function generateBirthday() {
-    return {
-        monthNumber: 1,
-        monthText: 'January',
-        day: 1,
-        year: 1990
-    }
-}
-
 function fetchRandomInfo() {
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
 
     xhr.open("GET", "https://gentle-tor-49998.herokuapp.com/users", false);
     xhr.send();
 
-    var result = JSON.parse(xhr.responseText)['results'][0];
-    console.log(result);
+    let result = JSON.parse(xhr.responseText)['results'][0];
+
     return result;
 }
 
@@ -35,8 +26,6 @@ function fillYelpRegistration() {
 
     let zipInput = document.getElementById("zip");
     zipInput.value = info.location.postcode;
-
-    let birthdate = generateBirthday();
 
     let birthMonthInput = document.getElementsByName("birthdate_m")[0];
     birthMonthInput.value = info.dob_month;
@@ -59,8 +48,6 @@ function fillCollegeConfidentialRegistration() {
 
     let emailInput = document.getElementById("register_email");
     emailInput.value = info.email;
-
-    let birthdate = generateBirthday();
 
     let birthMonthInput = document.getElementById("register_ccProfile_dob_month");
     birthMonthInput.value = info.dob_month;
@@ -95,8 +82,6 @@ function fillAOLRegistration() {
     // phoneNumberInput.value = processedNumber.split(")")[0].substring(1, 4) + processedNumber.split("-")[1] + processedNumber.split("-")[2];
     // console.log(processedNumber);
     // console.log(phoneNumberInput.value);
-
-    let birthdate = generateBirthday();
 
     let birthMonthInput = document.getElementById("usernamereg-month");
     birthMonthInput.value = parseInt(info.dob_month);
